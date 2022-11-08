@@ -1,8 +1,9 @@
 #Task 1
 t = [0.0,2.0,4.0,6.0,8.0,10.0]
 def distance_calculator(angular_velocity, wheel_diameter_centimeters):
-    """This function calculates the distance travelled by a robot with a given angular velocity and wheel diameter.
-       The output is a list of distances travelled at each time in time list 't'.
+    """
+    This function calculates the distance travelled by a robot with a given angular velocity and wheel diameter.
+    The output is a list of distances travelled at each time in time list 't'.
     """
     linear_velocity = wheel_diameter_centimeters/200 * angular_velocity
     distance = []
@@ -32,4 +33,3 @@ for time, distances in timeseries.items():
 distances_travelled = [max(robot1), max(robot2), max(robot3)]
 gap = max(distances_travelled) - min(distances_travelled)
 print (f"The gap between the furthest and the nearest robot is {gap} centimeters.")
-#change
