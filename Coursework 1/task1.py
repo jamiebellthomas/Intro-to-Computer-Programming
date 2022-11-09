@@ -33,3 +33,4 @@ for time, distances in timeseries.items():
 distances_travelled = [max(robot1), max(robot2), max(robot3)]
 gap = max(distances_travelled) - min(distances_travelled)
 print (f"The gap between the furthest and the nearest robot is {gap} centimeters.")
+
