@@ -107,6 +107,11 @@ def format_check(user_input):
     correct_format_check_success = False # This variable is used to check if the format check was successful. At the end of the function it is returned.
     error_detection = 0 # This variable is used to check if any errors have been detected. If it is 0 at the end of the function, the format check was successful.
     for i in user_input:
+        if i == '':
+            print("Empty element detected. Please try again.")
+            error_detection += 1
+            break
+            # This for loop checks if any of the element-coefficient pairs are empty. If they are, it prints an error message and increments the error detection variable.
         letter_and_number_list = seperate_string_number(i) # The seperate_string_number function is called on each element-coefficient pair in the user input.
         # For an ideal user input this will return a list of two entries, the first being the coefficient and the second being the element symbol.
         # This function only checks that each entry comprised of a string of numbers followed by a string of letters.
