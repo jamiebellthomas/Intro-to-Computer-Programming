@@ -7,22 +7,29 @@ def user_input_function(entry_talley):
     b) there are no negative symbols (all stiochiometric coefficients are positive)
     this function also also handles the attempt counter.
     """
+    user_exit = False # This variable is used to check if the user has entered the exit command. At the end of the function it is returned.
     entry_talley+=1
     if entry_talley == 1:
         print("Please enter the elements you'd like to combine and their ratios (e.g 2H + 1O --> H2O)")
         print("Please enter the elements in the format: coefficient-element (e.g 2H or 1O)")
         print("Available elements are: H,He,Li,Be,B,C,N,O,F,Ne. This program is not case sensitive.")
+        print("Type 'exit' to exit the program.")
         user_input = input("(Attempt 1) --> ")
         # The initial input message is different to the subsequent input messages. It contains more detail about the format of the input.
     else:
         print("Please enter the elements you'd like to combine and their ratios:")
+        print("Type 'exit' to exit the program.")
         user_input = input(f"(Attempt {entry_talley}) --> ")
         # The subsequent input messages are less detailed and simply ask for the input.
+    if user_input.strip().lower() == "exit":
+        user_exit = True
+        # If the user enters "exit" the program will exit.
 
     while user_input.strip() == '':
         entry_talley+=1
         print("No input detected. Please try again.")
         print("Please enter the elements you'd like to combine and their ratios:")
+        print("Type 'exit' to exit the program.")
         user_input = input(f"(Attempt {entry_talley}) --> ")
         # This while loop checks that the user has entered something. If they have not, it asks them to try again and increments the attempt counter.
 
@@ -30,9 +37,20 @@ def user_input_function(entry_talley):
         entry_talley+=1
         print("Negative numbers are not accepted. Please try again.")
         print("Please enter the elements you'd like to combine and their ratios:")
+        print("Type 'exit' to exit the program.")
         user_input = input(f"(Attempt {entry_talley}) --> ")
         # This while loop checks that the user has not entered a negative number. If they have, it asks them to try again and increments the attempt counter.
-    return user_input,entry_talley
+    
+    while user_input.strip() == '+':
+        entry_talley+=1
+        print("No elements detected. Please try again.")
+        print("Please enter the elements you'd like to combine and their ratios:")
+        print("Type 'exit' to exit the program.")
+        user_input = input(f"(Attempt {entry_talley}) --> ")
+        # This while loop checks that the user has not entered a '+' on its own. If they have, it asks them to try again and increments the attempt counter.
+        # This was check was hard coded into the first check to prevent the program from crashing  during later checks when the user enters a '+' on its own.
+
+    return user_input,entry_talley,user_exit
     
 def character_check(user_input):
     """
