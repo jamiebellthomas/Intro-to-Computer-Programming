@@ -43,10 +43,10 @@ def character_check(user_input):
     user_input_test = user_input.replace(" ","") # A copy of the user input (with all spaces removed) is made so that the original input is not altered.
     plus_index_record = [] # This list is used to record the index of the '+' characters in the user input.
     error_detection = 0 # This variable is used to check if any errors have been detected. If it is 0 at the end of the function, the character check was successful.
-    for index,value in enumerate(user_input_test):        
+    for index,value in enumerate(user_input_test):
         if value == '+':
             plus_index_record.append(index)
-            # This for loop records the index of the '+' characters in the user input.            
+            # This for loop records the index of the '+' characters in the user input.
         if value.isalpha() or value.isnumeric() or value == '+':
             user_input_test = user_input_test.translate({ord(value): None})
             # This for loop removes all valid characters from the user input copy.
@@ -241,4 +241,6 @@ def atomic_mass_calculator(user_input):
         # The atomic mass of the element, which is collected from the dictionary, 
         # is multiplied by the coefficient and added to the atomic mass variable.
     return atomic_mass
+
+
 
