@@ -14,17 +14,17 @@ while _i < len(t):
     _i += 1
 #print(timeseries)
 # We now have a dictionary with the time values as keys and a list of zeros as values. 
-# The length of the list is equal to the number of robots.7
+# The length of the list is equal to the number of robots.
 
 # For each robot, compute values
 for robot_index in range(len(robots)):
     robot = robots[robot_index]
     # Collects relevant robot parameters from the list of tuples 'robots'
 
-    wheel_diameter_centimeters = robot[0]
-    # Collects the wheel diameter from the tuple 'robot' (first value in the tuple)
-    angular_velocity = robot[1]
-    # Collects the angular velocity from the tuple 'robot' (second value in the tuple)
+    angular_velocity = robot[0]
+    # Collects the wheel angular velocity from the tuple 'robot' (first value in the tuple)
+    wheel_diameter_centimeters = robot[1]
+    # Collects the wheel diameter from the tuple 'robot' (second value in the tuple)
     linear_velocity = (wheel_diameter_centimeters / 200) * angular_velocity
     # Calculates the linear velocity from the wheel diameter and angular velocity 
 
