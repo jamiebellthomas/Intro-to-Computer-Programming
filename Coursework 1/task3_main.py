@@ -11,8 +11,8 @@ required_average_room_temp = 23.0 # Required average room temperature in degrees
 degree_sign = u'\N{DEGREE SIGN}'
 
 x_point_coordinates, y_point_coordinates = coord_list_calculator(no_of_x_points, no_of_y_points, room_dimensions) 
-print("The x coordinates of the points in the room are: ", x_point_coordinates)
-print("The y coordinates of the points in the room are: ", y_point_coordinates)
+#print("The x coordinates of the points in the room are: ", x_point_coordinates)
+#print("The y coordinates of the points in the room are: ", y_point_coordinates)
 # This line calls the coord_list_calculator function to calculate the x and y coordinates of the points in the room for which temperatures are to be calculated
 temperature_list = point_temp_calculator(x_point_coordinates, y_point_coordinates,radiator_coordinates,T_rad, T_air)
 # This line calls the point_temp_calculator function to calculate the temperature of the air at each point in the room. The output is a list of temperatures at the points in the room.

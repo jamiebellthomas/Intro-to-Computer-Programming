@@ -133,13 +133,12 @@ def format_check(user_input):
             # If the second entry in the list returned by the seperate_string_number function is not alphabetic, it means that the element-coefficient pair is not in the correct format.
             # An error message is printed and the error detection variable is incremented and the loop is broken.
             
-        elif letter_and_number_list[0] == '0':
-            print('Your input contains a coefficient of 0. Please try again.')
+        elif letter_and_number_list[0][0] == '0':
+            print('Your coefficient starts with a 0. Please try again.')
             error_detection += 1
             # If the first entry in the list returned by the seperate_string_number function is 0, it means that the element-coefficient pair is not in the correct format.
-            # An error message is printed and the error detection variable is incremented and the loop is broken.         
-        else:
-            pass
+            # An error message is printed and the error detection variable is incremented and the loop is broken.  
+            # Also checks if coefficient starts with 0.       
     if error_detection == 0:
         correct_format_check_success = True
         # If the error detection variable is 0 at this stage, no errors were detected. The format check was successful and the check_success variable is set to True.
