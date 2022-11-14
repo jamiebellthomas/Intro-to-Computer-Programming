@@ -31,6 +31,8 @@ def user_input_function(entry_talley):
         print("Please enter the elements you'd like to combine and their ratios:")
         print("Type 'exit' to exit the program.")
         user_input = input(f"(Attempt {entry_talley}) --> ")
+        if user_input.strip().lower() == "exit":
+            user_exit = True
         # This while loop checks that the user has entered something. If they have not, it asks them to try again and increments the attempt counter.
 
     while '-' in user_input:
@@ -39,6 +41,8 @@ def user_input_function(entry_talley):
         print("Please enter the elements you'd like to combine and their ratios:")
         print("Type 'exit' to exit the program.")
         user_input = input(f"(Attempt {entry_talley}) --> ")
+        if user_input.strip().lower() == "exit":
+            user_exit = True
         # This while loop checks that the user has not entered a negative number. If they have, it asks them to try again and increments the attempt counter.
     
     while user_input.strip() == '+':
@@ -47,6 +51,8 @@ def user_input_function(entry_talley):
         print("Please enter the elements you'd like to combine and their ratios:")
         print("Type 'exit' to exit the program.")
         user_input = input(f"(Attempt {entry_talley}) --> ")
+        if user_input.strip().lower() == "exit":
+            user_exit = True
         # This while loop checks that the user has not entered a '+' on its own. If they have, it asks them to try again and increments the attempt counter.
         # This was check was hard coded into the first check to prevent the program from crashing  during later checks when the user enters a '+' on its own.
 
@@ -173,7 +179,7 @@ def distinct_symbol_check(user_input):
         # If the error detection variable is not 0 at this stage, an error message has already been printed and the user 
         # is promted to try again.
 
-    return user_input, distinct_symbol_check_success, distinct_symbol_list
+    return distinct_symbol_check_success, distinct_symbol_list
 
 def element_symbol_check(distinct_symbol_list):
     """
@@ -185,9 +191,8 @@ def element_symbol_check(distinct_symbol_list):
     error_detection = 0
     for i in distinct_symbol_list:
         if i.lower() not in feasible_elements:
-            print(f"{i} is not a valid element symbol. Please try again.")
+            print(f"{i.lower().capitalize()} is not a valid element symbol. Please try again.")
             error_detection += 1
-            break
         # This function utilises the distinct symbol list created in the distinct_symbol_check function.
         # This loop checks that each element symbol in the distinct symbol list is in the list of valid element symbols.
         # If it is not, an error message is printed and the error detection variable is incremented.
